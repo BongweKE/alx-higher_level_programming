@@ -1,3 +1,6 @@
 #!/usr/bin/python3
-for letter in range(97, 97 + 26):
-    print(f"{chr(letter)}", end='')
+n = 97
+i = 0
+while i < 26:
+    print(f"{chr(n + i)}", end='')
+    i += 1
