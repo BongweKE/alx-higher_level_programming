@@ -2,11 +2,14 @@
 def mult_3(number):
     return number % 3 == 0
 
+
 def mult_5(number):
     return number % 5 == 0
 
+
 def mult_3_n_5(number):
     return mult_3(number) and mult_5(number)
+
 
 def fizzbuzz():
     for i in range(1, 101):
