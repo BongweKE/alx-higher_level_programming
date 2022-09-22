@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from sys import argv
 
+
 def main():
     count = len(argv) - 1
     if count <= 0:
