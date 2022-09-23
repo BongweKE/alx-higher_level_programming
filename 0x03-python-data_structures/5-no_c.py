@@ -9,5 +9,9 @@ def no_c(my_string):
     Return:
         string without letter c
     """
-    return ''.join([letter for letter in my_string
-                    if letter not in ('c', 'C')])
+    return ''.join(
+        list(map(
+            lambda letter: letter
+            if letter not in ('c', 'C') else '',
+            my_string
+        )))
