@@ -10,7 +10,5 @@ def print_reversed_list_integer(my_list=[]):
         4. You have to use str.format() to print integers
 
     """
-    temp = my_list[:]
-    temp.reverse()
-    for i in temp:
-        print("{:d}".format(i))
+    for i in reversed(my_list):
+        print("{}".format(i))
