@@ -12,6 +12,6 @@ def element_at(my_list, idx):
     Return:
         Value of element at the index or none
     """
-    if idx < 0 or idx > len(my_list):
+    if idx < 0 or idx >= len(my_list):
         return None
     return my_list[idx]
