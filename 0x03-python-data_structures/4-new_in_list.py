@@ -14,8 +14,9 @@ def new_in_list(my_list, idx, element):
     Return:
         Original or Modified copy of the original list
     """
+
     temp = my_list[:]
-    if idx < 0 or idx > len(temp):
+    if idx < 0 or idx >= len(temp):
         return temp
     temp[idx] = element
     return temp

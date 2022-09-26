@@ -11,7 +11,8 @@ def print_matrix_integer(matrix=[[]]):
 
     for row in matrix:
         for item in row:
-            print("{:s}{}".format(
-                '' if row.index(item) == 0 else ', ', item),
+            print("{:s}{:d}".format('' if row.index(item) == 0
+                                  else ', ',
+                                    int(item)),
                   end='')
         print()
