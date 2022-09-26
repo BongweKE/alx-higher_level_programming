@@ -12,7 +12,7 @@ def print_matrix_integer(matrix=[[]]):
     for row in matrix:
         for item in row:
             print("{:s}{:d}".format('' if row.index(item) == 0
-                                  else ', ',
+                                    else ', ',
                                     int(item)),
                   end='')
         print()
