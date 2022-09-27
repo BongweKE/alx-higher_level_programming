@@ -10,6 +10,11 @@ def print_reversed_list_integer(my_list=[]):
         4. You have to use str.format() to print integers
 
     """
+
+    if my_list is None:
+        print(None)
+        return None
+
     for i in reversed(my_list):
         str = "{:d}"
         print(str.format(int(i)))
