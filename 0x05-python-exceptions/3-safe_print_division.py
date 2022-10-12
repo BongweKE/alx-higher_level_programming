@@ -20,4 +20,5 @@ def safe_print_division(a, b):
     except ZeroDivisionError:
         x = None
     finally:
+        print(f"Inside result: {x}")
         return x
