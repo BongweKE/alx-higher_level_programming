@@ -14,6 +14,8 @@ Example:
     size must be an integer
     size must be >= 0
 """
+
+
 class Square:
     """a class Square that defines a mathematical square
     """

@@ -10,6 +10,8 @@ Example:
         'Square' object has no attribute 'size'
         'Square' object has no attribute '__size'
 """
+
+
 class Square:
     """a class Square that defines a square by
     Private instance attribute: size
