@@ -71,3 +71,16 @@ class Rectangle:
             return 0
 
         return (self.__height * 2) + (self.width * 2)
+
+    def __str__(self):
+        """A method to define how to define the rectangle
+        Note:
+            It's going to be represented using #
+        """
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        nl = "\n"
+        pr_rec = nl.join(
+            [''.join(['#' for i in range(self.__width)])
+             for i in range(self.__height)])
+        return f"{pr_rec}"
