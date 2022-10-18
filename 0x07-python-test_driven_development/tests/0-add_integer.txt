@@ -1,0 +1,50 @@
+=========================
+How to use 0-add_integer.py
+=========================
+
+It has one main function, ''0-add_integer.py()''
+This is used just like a + b
+
+::
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(4, 5)
+    9
+
+Works well with floats too. It casts them first, though
+
+::
+    >>> add_integer(9.7, 5.3)
+    14
+
+Non-Numbers
+===========
+Raise TypeErrors if either a or b is not a float or int
+    >>> add_integer("J", 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+    >>> add_integer(4, "")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+    >>> add_integer(4, [9, 0])
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+    >>> add_integer(4, {})
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+    >>> add_integer([9, 0], 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+    >>> add_integer({}, 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
