@@ -16,6 +16,9 @@ Works well with floats too. It casts them first, though
     >>> add_integer(9.7, 5.3)
     14
 
+    >>> type(add_integer(9.7, 5.3)) is int
+    True
+
 Non-Numbers
 ===========
 Raise TypeErrors if either a or b is not a float or int
