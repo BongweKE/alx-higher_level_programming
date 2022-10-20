@@ -21,9 +21,8 @@ def text_indentation(text):
                     for i in text])
     temp = list(temp)
 
-
     for k, v in enumerate(temp):
         if v == '\n' and (k+1) < len(temp) and temp[k+1] == ' ':
-            del(temp[k+1])
+            del (temp[k+1])
 
     print(''.join(temp), end='')
