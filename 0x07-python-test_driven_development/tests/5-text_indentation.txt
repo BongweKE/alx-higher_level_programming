@@ -1,0 +1,57 @@
+================================
+How to use 5-text_indentation.py
+================================
+
+This is a simple library with one main function,
+''text_indentation()'' which receives text as input,
+and adds two line separators after each line ending with ., ? or :
+
+Using normal strings:
+=====================
+::
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+	>>> text_indentation("Numbers: one, two? three.. etc")
+	Numbers:
+	<BLANKLINE>
+	one, two?
+	<BLANKLINE>
+	three.
+	<BLANKLINE>
+	.
+	<BLANKLINE>
+	etc
+	>>> text_indentation('C')
+	C
+
+	>>> text_indentation("two.words")
+	two.
+	<BLANKLINE>
+	words
+	>>> text_indentation("..")
+	.
+	<BLANKLINE>
+	.
+	<BLANKLINE>
+	>>>
+
+Doesn't change anything in case .?: are not in the string
+::
+	>>> text_indentation("Numbers 1, ,2 3")
+	Numbers 1, ,2 3
+
+Using non string input:
+=======================
+::
+	>>> text_indentation(["Numbers 1, ,2 3"])
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+
+	>>> text_indentation(4)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+	>>> text_indentation(0.63)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
