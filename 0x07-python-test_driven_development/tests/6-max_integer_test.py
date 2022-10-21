@@ -27,7 +27,7 @@ key_error_list = {'s': 3, 't': 3}
 
 str_patterns = ["str", list("str"), ('s', 't', 'r'), "12.4t"]
 
-num_patterns = [[4], [0.4, 0.6, 4.0], (0.1, 4.0)]
+num_patterns = [[4, 0, 3], [4], [0.4, 0.6, 4.0], (0.1, 4.0)]
 
 
 class TestMaxInteger(unittest.TestCase):
