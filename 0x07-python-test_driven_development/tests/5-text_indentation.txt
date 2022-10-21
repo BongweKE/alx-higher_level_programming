@@ -39,6 +39,14 @@ Doesn't change anything in case .?: are not in the string
 	>>> text_indentation("Numbers 1, ,2 3")
 	Numbers 1, ,2 3
 
+Using no args:
+==============
+::
+	>>> text_indentation()
+	Traceback (most recent call last):
+	...
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
+
 Using non string input:
 =======================
 ::
