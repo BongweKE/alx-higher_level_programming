@@ -54,6 +54,10 @@ Exceptions expected
 	Traceback (most recent call last):
 	...
 	TypeError: sth must be an integer
+	>>> bg.integer_validator("sth", {3, 4})
+	Traceback (most recent call last):
+	...
+	TypeError: sth must be an integer
 
 
 Unexpected Exceptions

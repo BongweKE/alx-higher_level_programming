@@ -9,6 +9,7 @@ class Square(Rectangle):
 
     def __init__(self, size):
         """A method to initialize the super with correct values"""
+        self.integer_validator("size", size)
         super().__init__(size, size)
         self.__size = size
 
