@@ -4,7 +4,7 @@
 
 
 class BaseGeometry:
-    """A child class of BaseGeometry from Module 5-base_geometry"""
+    """A BaseGeometry class"""
     def __init__(self):
         """ a method to initialize the class instance"""
         pass
