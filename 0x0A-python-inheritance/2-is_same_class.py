@@ -6,6 +6,7 @@
 def is_same_class(obj, a_class):
     """a funtion to test whether an object is an instance of a
     given class
+    It should be an immediate class child
     Attrs:
         obj (obj): The object to test
         a_class (class): A class to test against
