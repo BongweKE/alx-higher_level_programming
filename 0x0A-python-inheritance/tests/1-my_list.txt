@@ -1,0 +1,66 @@
+=======================
+How to use 1-my_list.py
+=======================
+
+This is a simple library handling the use of ''MyList''
+
+Instantiation
+=============
+
+''MyList'' Inherits from ''list'' therefore should work fairly close to it
+
+::
+	>>> MyList = __import__('1-my_list').MyList
+	>>> m = MyList()
+	>>> isinstance(m, list)
+	True
+
+Append and __str__
+==================
+
+''MyList'' should accept append method and be printed like a ''list''
+
+::
+	>>> str(m)
+	'[]'
+	>>> m.append(5)
+	>>> str(m)
+	'[5]'
+
+Print Sorted
+============
+
+''MyList'' has a method named ''print_sorted()'' which should not change
+the original list
+
+First we test that an unsorted listbecomes sorted
+::
+	>>> m.append(0)
+	>>> m.append(3)
+	>>> m.print_sorted()
+	[0, 3, 5]
+
+Next we test that an already sorted list doesn't change
+::
+	>>> s = MyList()
+	>>> s.append(1)
+	>>> s.append(2)
+	>>> s.append(3)
+	>>> s.print_sorted()
+	[1, 2, 3]
+
+For the previous unsorted list, We test that it can still handle negative
+integers and print_sorted() uses a copy or the original MyList instance
+::
+	>>> m.append(-2)
+	>>> m.append(-8)
+	>>> m.print_sorted()
+	[-8, -2, 0, 3, 5]
+	>>> m
+	[5, 0, 3, -2, -8]
+
+Test the ''print_sorted()'' method on an empty list
+::
+	>>> e = MyList()
+	>>> e.print_sorted()
+	[]
