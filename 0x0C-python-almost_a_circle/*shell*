@@ -1,0 +1,18 @@
+vagrant@trusty64:~/Dev/alx-higher_level_programming/0x0C-python-almost_a_circle/models$ python3
+Python 3.8.10 (default, Jun 22 2022, 20:18:18) 
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from models.rectangle import Rectangle
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'models'
+>>> 
+vagrant@trusty64:~/Dev/alx-higher_level_programming/0x0C-python-almost_a_circle/models$ cd ..
+vagrant@trusty64:~/Dev/alx-higher_level_programming/0x0C-python-almost_a_circle$ python3
+Python 3.8.10 (default, Jun 22 2022, 20:18:18) 
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from models.rectangle import Rectangle
+>>> from models.base import Base
+>>> r1 = Rectangle(10, 7, 2, 8)
+>>> r2 = Rectangle(10, 7, 2, 2)
