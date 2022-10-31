@@ -3,6 +3,7 @@
 """Module file for rectangle.py"""
 from models.base import Base
 
+
 class Rectangle(Base):
     """A child class of base to represent a mathematical rectangle"""
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -33,7 +34,6 @@ class Rectangle(Base):
             raise TypeError(f"{name} must be an integer")
         if x < 0:
             raise ValueError(f"{name} must be >= 0")
-
 
         name = "y"
         if type(y) != int:
@@ -177,5 +177,4 @@ class Rectangle(Base):
                 'y': self.__y,
                 'id': self.id,
                 'height': self.__height,
-                'width': self.__width
-        }
+                'width': self.__width}

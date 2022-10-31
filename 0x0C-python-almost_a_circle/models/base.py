@@ -3,12 +3,14 @@
 """init file for models. When we call the models package,
 this is the starting point
 """
-import json, os
+import json
+import os
 
 
 class Base:
     """Base class for most of our classes"""
     __nb_objects = 0
+
     def __init__(self, id=None):
         if id is not None:
             self.id = id
@@ -28,9 +30,9 @@ class Base:
         if list_objs is None:
             str_content = '[]'
         else:
-             str_content = Base.to_json_string(
-                 [i.to_dictionary() for i in list_objs]
-             )
+            str_content = Base.to_json_string(
+                [i.to_dictionary() for i in list_objs]
+            )
         filename = f"{cls.__name__}.json"
         file_n = open(filename, "w")
 
@@ -55,7 +57,7 @@ class Base:
     @classmethod
     def load_from_file(cls):
         f_name = f"{cls.__name__}.json"
-        if os.path.isfile(f_name) == False:
+        if os.path.isfile(f_name) is False:
             return []
         with open(f_name) as f:
             return [cls.create(**ls) for ls in json.load(f)]

@@ -3,6 +3,7 @@
 """Module file for square.py"""
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
@@ -62,7 +63,6 @@ class Square(Rectangle):
                     self.__x = v
                 if k == "y":
                     self.__y = v
-
 
     def to_dictionary(self):
         return {
