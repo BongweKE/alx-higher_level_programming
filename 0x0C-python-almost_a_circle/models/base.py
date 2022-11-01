@@ -76,4 +76,6 @@ class Base:
         if os.path.isfile(f_name) is False:
             return []
         with open(f_name) as f:
-            return [cls.create(**ls) for ls in json.load(f)]
+            return [
+                cls.create(**ls)
+                for ls in Base.from_json_string(f.read())]
