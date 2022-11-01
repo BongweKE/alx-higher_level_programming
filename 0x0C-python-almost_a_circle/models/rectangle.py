@@ -118,7 +118,7 @@ class Rectangle(Base):
         if y < 0:
             raise ValueError(f"{name} must be >= 0")
 
-        self.__y = val
+        self.__y = y
 
     def area(self):
         """A method to calculate area of a reactangle"""

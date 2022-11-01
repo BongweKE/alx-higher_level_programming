@@ -44,13 +44,13 @@ class Square(Rectangle):
         if args is not None and len(args) != 0:
             try:
                 if args[0] is not None:
-                    self.id = args[0]
+                    setattr(self, 'id', args[0])
                 if args[1] is not None:
                     self.__size = args[1]
                 if args[2] is not None:
-                    self.__x = args[3]
+                    self.__x = args[2]
                 if args[3] is not None:
-                    self.__y = args[4]
+                    setattr(self, 'y', args[3])
             except IndexError:
                 pass
         elif kwargs is not None:
