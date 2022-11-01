@@ -100,10 +100,6 @@ class TestsForRectangle(unittest.TestCase):
 
     def tests_that_open_file(self):
         """Test methods that save json to the file"""
-        Rectangle.save_to_file(None)
-        with open("Rectangle.json") as f:
-            string_read = f.read()
-            self.assertEqual(string_read, '[]')
         Rectangle.save_to_file([])
         with open("Rectangle.json") as f:
             string_read = f.read()
