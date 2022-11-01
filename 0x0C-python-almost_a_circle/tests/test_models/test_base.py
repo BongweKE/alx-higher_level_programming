@@ -14,14 +14,14 @@ class TestsForBaseClass(unittest.TestCase):
             self.assertEqual(r1.id, 1)
             self.assertEqual(r2.id, 2)
             self.assertEqual(r3.id, 19)
-            self.assertEqual(Base.to_json_string(None), [])
-            self.assertEqual(Base.to_json_string([]), [])
+            self.assertEqual(Base.to_json_string(None), '[]')
+            self.assertEqual(Base.to_json_string([]), '[]')
             self.assertEqual(
                 Base.to_json_string([ { 'id': 12 }]),
                                     '[{"id": 12}]')
             self.assertEqual(
                     type(Base.to_json_string([ { 'id': 12 }])), str)
-            self.assertEqual(Base.from_json_string(None), {})
+            self.assertEqual(Base.from_json_string(None), [])
             self.assertEqual(Base.from_json_string("[]"), [])
             self.assertEqual(
                 Base.from_json_string('[{ "id": 89 }]'), [{'id': 89}])
