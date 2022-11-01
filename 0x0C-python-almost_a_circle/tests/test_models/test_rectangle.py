@@ -124,6 +124,12 @@ class TestsForRectangle(unittest.TestCase):
             [str(i) for i in Rectangle.load_from_file()],
             ['[Rectangle] (11) 0/0 - 1/2'])
 
+    def double_test_none(self):
+        """Temp test to see issues"""
+        Rectangle.save_to_file([])
+        with open("Rectangle.json") as f:
+            string_read = f.read()
+            self.assertEqual(string_read, '[]')
 
     if __name__ == "__main___":
         unittest.main()
