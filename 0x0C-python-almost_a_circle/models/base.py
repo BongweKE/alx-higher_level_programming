@@ -61,9 +61,9 @@ class Base:
             **dictionary (**kwargs): key value pairs used to create the model
         """
         if cls.__name__ == "Rectangle":
-            dummy = cls(10, 10, 10, 10)
+            dummy = cls(10, 10)
         elif cls.__name__ == "Square":
-            dummy = cls(1, 1, 0)
+            dummy = cls(1)
 
         dummy.update(**dictionary)
         return dummy
