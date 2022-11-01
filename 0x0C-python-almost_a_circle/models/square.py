@@ -15,23 +15,18 @@ class Square(Rectangle):
             x (int): Location on the x axis of a 2d plane
             y (int): Location on the y axis of a 2d plane
         """
-
         super().__init__(size, size, x, y, id)
-        self.__size = size
-        self.__x = x
-        self.__y = y
-
 
     def __str__(self):
         """A method to define how the user sees the square instance"""
-        str1 = f"[Square] ({self.id}) {self.__x}/{self.__y}"
-        str2 = f"{self.__size}"
+        str1 = f"[Square] ({self.id}) {self.x}/{self.y}"
+        str2 = f"{self.size}"
         return f"{str1} - {str2}"
 
     @property
     def size(self):
         """Getter class for size attribute"""
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, val):
@@ -39,13 +34,8 @@ class Square(Rectangle):
         Attr:
             width: size setter for width
         """
-        name = "width"
-        if type(val) != int:
-            raise TypeError(f"{name} must be an integer")
-        elif val <= 0:
-            raise ValueError(f"{name} must be > 0")
-
-        self.__size = val
+        self.width = val
+        self.height = val
 
     def update(self, *args, **kwargs):
         """update id, size, x, y
@@ -56,9 +46,9 @@ class Square(Rectangle):
                 if args[0] is not None:
                     setattr(self, 'id', args[0])
                 if args[1] is not None:
-                    self.__size = args[1]
+                    self.size = args[1]
                 if args[2] is not None:
-                    self.__x = args[2]
+                    self.x = args[2]
                 if args[3] is not None:
                     setattr(self, 'y', args[3])
             except IndexError:
@@ -68,17 +58,17 @@ class Square(Rectangle):
                 if k == "id":
                     self.id = v
                 if k == "size":
-                    self.__size = v
+                    self.size = v
                 if k == "x":
-                    self.__x = v
+                    self.x = v
                 if k == "y":
-                    self.__y = v
+                    self.y = v
 
     def to_dictionary(self):
         """Method to present a Square as a dictionary"""
         return {
             'id': self.id,
-            'x': self.__x,
-            'y': self.__y,
-            'size': self.__size
+            'x': self.x,
+            'y': self.y,
+            'size': self.size
         }
