@@ -5,6 +5,7 @@ Unittest for Rectangle class
 import unittest
 from unittest.mock import patch
 from io import StringIO
+import os
 from models.rectangle import Rectangle
 from models.base import Base
 
@@ -96,6 +97,33 @@ class TestsForRectangle(unittest.TestCase):
     def subclassIssues(self):
         """subclass tests"""
         self.assertEqual(issubclass(Rectangle, Base), True)
+
+    def tests_that_open_file(self):
+        """Test methods that save json to the file"""
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json") as f:
+            string_read = f.read()
+            self.assertEqual(string_read, '[]')
+        Rectangle.save_to_file([])
+        with open("Rectangle.json") as f:
+            string_read = f.read()
+            self.assertEqual(string_read, '[]')
+        Rectangle.save_to_file([Rectangle(1, 2)])
+        s = '[{"x": 0, "y": 0, "id": 10, "height": 2, "width": 1}]'
+        with open("Rectangle.json") as f:
+            string_read = f.read()
+            self.assertEqual(string_read, s)
+        # test if load_from_file works on non existent files
+        myfile = "Rectangle.json"
+        if os.path.isfile(myfile):
+            os.remove(myfile)
+        self.assertEqual(Rectangle.load_from_file(), [])
+        # load one rectangle and test whether it's well saved n loaded
+        Rectangle.save_to_file([Rectangle(1, 2)])
+        self.assertEqual(
+            [str(i) for i in Rectangle.load_from_file()],
+            ['[Rectangle] (11) 0/0 - 1/2'])
+
 
     if __name__ == "__main___":
         unittest.main()

@@ -32,6 +32,10 @@ class TestsForSquare(unittest.TestCase):
         self.assertEqual(r5.x, 2)
         self.assertEqual(r5.y, 3)
         self.assertEqual(r5.id, 4)
+        # test to_dictionary() method
+        self.assertEqual(
+            Square(4, 4, 7, 7).to_dictionary(),
+            {'id': 7, 'x': 4, 'y': 7, 'size': 4})
 
     def test_square_errors(self):
         """Test TypeErrors and ValueErrors"""
