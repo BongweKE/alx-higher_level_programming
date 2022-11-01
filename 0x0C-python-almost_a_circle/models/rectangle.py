@@ -100,7 +100,7 @@ class Rectangle(Base):
         if x < 0:
             raise ValueError(f"{name} must be >= 0")
 
-        self.__x = val
+        self.__x = x
 
     @property
     def y(self):
