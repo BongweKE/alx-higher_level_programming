@@ -5,7 +5,17 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """A class to define Square mathematical representation"""
+
     def __init__(self, size, x=0, y=0, id=None):
+        """Initializer method for square instances
+        Attrs:
+            width (int): The width of the rectangle
+            height (int): mathematical height
+            x (int): Location on the x axis of a 2d plane
+            y (int): Location on the y axis of a 2d plane
+        """
+
         super().__init__(size, size, x, y, id)
         self.__size = size
         self.__x = x
@@ -65,6 +75,7 @@ class Square(Rectangle):
                     self.__y = v
 
     def to_dictionary(self):
+        """Method to present a Square as a dictionary"""
         return {
             'id': self.id,
             'x': self.__x,
