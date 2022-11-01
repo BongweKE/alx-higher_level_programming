@@ -12,6 +12,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """Initialization for the base class"""
         if id is not None:
             self.id = id
         else:
@@ -27,6 +28,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """A method to safe json representation of a class to a file"""
         if list_objs is None:
             str_content = '[]'
         else:
@@ -40,12 +42,22 @@ class Base:
         file_n.close()
 
     def from_json_string(json_string):
+        """Convert a string representation of json to json format
+        Attrs:
+            json_string (str): json string representation
+        Return:
+            json repersentation of a string
+        """
         if json_string is None or json_string == "":
             return {}
         return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
+        """A class method to create a model
+        Attrs:
+            **dictionary (**kwargs): key value pairs used to create the model
+        """
         if cls.__name__ == "Rectangle":
             dummy = cls(10, 10, 10, 10)
         elif cls.__name__ == "Square":
@@ -56,6 +68,8 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """A class method used to open a json file and use it's content to build
+        instances"""
         f_name = f"{cls.__name__}.json"
         if os.path.isfile(f_name) is False:
             return []
