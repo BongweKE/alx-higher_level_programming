@@ -16,10 +16,10 @@ class Square(Rectangle):
             y (int): Location on the y axis of a 2d plane
         """
 
-        super().__init__(size, size, x, y, id)
         self.__size = size
         self.__x = x
         self.__y = y
+        super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """A method to define how the user sees the square instance"""
@@ -33,19 +33,19 @@ class Square(Rectangle):
         return self.__size
 
     @size.setter
-    def size(self, width):
+    def size(self, size):
         """Setter class for size attribute
         Attr:
             width: size setter for width
             height: size setter for height
         """
         name = "width"
-        if type(width) != int:
+        if type(size) != int:
             raise TypeError(f"{name} must be an integer")
-        elif width <= 0:
+        elif size <= 0:
             raise ValueError(f"{name} must be > 0")
 
-        self.__size = width
+        self.__size = size
 
     def update(self, *args, **kwargs):
         """update id, size, x, y
