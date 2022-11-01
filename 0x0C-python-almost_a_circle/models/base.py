@@ -30,7 +30,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """A method to safe json representation of a class to a file"""
-        if list_objs is None:
+        if list_objs is None or list_objs == []:
             str_content = '[]'
         else:
             str_content = Base.to_json_string(
