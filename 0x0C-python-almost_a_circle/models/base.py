@@ -68,8 +68,8 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """A class method used to open a json file and use it's content to build
-        instances"""
+        """A class method used to open a json file and use it's
+        content to build instances"""
         f_name = f"{cls.__name__}.json"
         if os.path.isfile(f_name) is False:
             return []

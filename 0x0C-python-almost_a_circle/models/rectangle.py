@@ -173,6 +173,7 @@ class Rectangle(Base):
                     self.__y = v
 
     def to_dictionary(self):
+        """Method to convert instance to dictionary"""
         return {'x': self.__x,
                 'y': self.__y,
                 'id': self.id,
