@@ -5,6 +5,7 @@ this is the starting point
 """
 import json
 import os
+import csv
 
 
 class Base:
@@ -79,3 +80,48 @@ class Base:
             return [
                 cls.create(**ls)
                 for ls in Base.from_json_string(f.read())]
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Save to csv file"""
+        # save in a csv-like format
+        if (cls.__name__ == "Rectangle"):
+            list_csv = [[r.id, r.width, r.height, r.x, r.y] for r in list_objs]
+        else:
+            list_csv = [[r.id, r.size, r.x, r.y] for r in list_objs]
+
+        file_name = cls.__name__ + ".csv"
+        file_r = open(file_name, "w")
+        csv_writer = csv.writer(file_r)
+        csv_writer.writerow(list_csv)
+
+        file_r.close()
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Read a csv file containing details of a Geometric shape"""
+        file_name = cls.__name__ + ".csv"
+        nme = cls.__name__
+        to_return = []
+        with open(file_name, encoding="utf-8") as file_r:
+            csv_reader = csv.reader(file_r)
+            for i in csv_reader:
+                to_return.append(i)
+            test = to_return[0]
+
+        # save in dictionary so that create can convert it back to a repr
+        if (cls.__name__ == "Rectangle"):
+            to_return = [[int(i) for i in j if i not in ',[] '] for j in test]
+            to_return = [
+                {'id': i[0], 'width': i[1], 'height': i[2], 'x':i[3], 'y':i[4]}
+                for i in to_return]
+        else:
+            to_return = [[int(i) for i in j if i not in ',[] '] for j in test]
+            to_return = [
+                {'id': i[0], 'size': i[1], 'x':i[2], 'y':i[3]}
+                for i in to_return]
+
+        # use cls.create to create the representations for each
+        return [
+                cls.create(**ls)
+                for ls in to_return]
