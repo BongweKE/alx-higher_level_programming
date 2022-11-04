@@ -130,11 +130,11 @@ class Base:
                         "y": int(r['y'])}
                 if (cls.__name__ == "Rectangle"):
                     list_csv = {
-                        "id": r['id'],
-                        "width": r['width'],
-                        "height": r['height'],
-                        "x": r['x'],
-                        "y": r['y']
+                        "id": int(r['id']),
+                        "width": int(r['width']),
+                        "height": int(r['height']),
+                        "x": int(r['x']),
+                        "y": int(r['y'])
                     }
 
                 to_return.append(cls.create(**list_csv))
