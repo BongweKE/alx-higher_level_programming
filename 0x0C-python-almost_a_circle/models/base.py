@@ -89,20 +89,20 @@ class Base:
             fieldnames = ['id', 'width', 'height', 'x', 'y']
             list_csv = [
                 {
-                    "id":r.id,
-                    "width":r.width,
-                    "height":r.height,
-                    "x":r.x,
-                    "y":r.y
+                    "id": r.id,
+                    "width": r.width,
+                    "height": r.height,
+                    "x": r.x,
+                    "y": r.y
                 } for r in list_objs]
         else:
             fieldnames = ['id', 'size', 'x', 'y']
             list_csv = [
                 {
-                    "id":r.id,
-                    "size":r.size,
-                    "x":r.x,
-                    "y":r.y
+                    "id": r.id,
+                    "size": r.size,
+                    "x": r.x,
+                    "y": r.y
                 } for r in list_objs]
 
         file_name = cls.__name__ + ".csv"
@@ -111,7 +111,6 @@ class Base:
             writer.writeheader()
             for row in list_csv:
                 writer.writerow(row)
-
 
     @classmethod
     def load_from_file_csv(cls):
@@ -124,17 +123,18 @@ class Base:
 
             for r in reader:
                 if (cls.__name__ == "Square"):
-                    list_csv = { "id":int(r['id']),
-                                 "size":int(r['size']),
-                                 "x":int(r['x']),
-                                 "y":int(r['y'])}
+                    list_csv = {
+                        "id": int(r['id']),
+                        "size": int(r['size']),
+                        "x": int(r['x']),
+                        "y": int(r['y'])}
                 if (cls.__name__ == "Rectangle"):
                     list_csv = {
-                        "id":r['id'],
-                        "width":r['width'],
-                        "height":r['height'],
-                        "x":r['x'],
-                        "y":r['y']
+                        "id": r['id'],
+                        "width": r['width'],
+                        "height": r['height'],
+                        "x": r['x'],
+                        "y": r['y']
                     }
 
                 to_return.append(cls.create(**list_csv))
