@@ -86,42 +86,56 @@ class Base:
         """Save to csv file"""
         # save in a csv-like format
         if (cls.__name__ == "Rectangle"):
-            list_csv = [[r.id, r.width, r.height, r.x, r.y] for r in list_objs]
+            fieldnames = ['id', 'width', 'height', 'x', 'y']
+            list_csv = [
+                {
+                    "id":r.id,
+                    "width":r.width,
+                    "height":r.height,
+                    "x":r.x,
+                    "y":r.y
+                } for r in list_objs]
         else:
-            list_csv = [[r.id, r.size, r.x, r.y] for r in list_objs]
+            fieldnames = ['id', 'size', 'x', 'y']
+            list_csv = [
+                {
+                    "id":r.id,
+                    "size":r.size,
+                    "x":r.x,
+                    "y":r.y
+                } for r in list_objs]
 
         file_name = cls.__name__ + ".csv"
-        file_r = open(file_name, "w")
-        csv_writer = csv.writer(file_r)
-        csv_writer.writerow(list_csv)
+        with open(file_name, 'w', newline='') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            for row in list_csv:
+                writer.writerow(row)
 
-        file_r.close()
 
     @classmethod
     def load_from_file_csv(cls):
         """Read a csv file containing details of a Geometric shape"""
         file_name = cls.__name__ + ".csv"
-        nme = cls.__name__
+
         to_return = []
-        with open(file_name, encoding="utf-8") as file_r:
-            csv_reader = csv.reader(file_r)
-            for i in csv_reader:
-                to_return.append(i)
-            test = to_return[0]
+        with open(file_name, newline='') as csvfile:
+            reader = csv.DictReader(csvfile)
 
-        # save in dictionary so that create can convert it back to a repr
-        if (cls.__name__ == "Rectangle"):
-            to_return = [[int(i) for i in j if i not in ',[] '] for j in test]
-            to_return = [
-                {'id': i[0], 'width': i[1], 'height': i[2], 'x':i[3], 'y':i[4]}
-                for i in to_return]
-        else:
-            to_return = [[int(i) for i in j if i not in ',[] '] for j in test]
-            to_return = [
-                {'id': i[0], 'size': i[1], 'x':i[2], 'y':i[3]}
-                for i in to_return]
+            for r in reader:
+                if (cls.__name__ == "Square"):
+                    list_csv = { "id":int(r['id']),
+                                 "size":int(r['size']),
+                                 "x":int(r['x']),
+                                 "y":int(r['y'])}
+                if (cls.__name__ == "Rectangle"):
+                    list_csv = {
+                        "id":r['id'],
+                        "width":r['width'],
+                        "height":r['height'],
+                        "x":r['x'],
+                        "y":r['y']
+                    }
 
-        # use cls.create to create the representations for each
-        return [
-                cls.create(**ls)
-                for ls in to_return]
+                to_return.append(cls.create(**list_csv))
+            return to_return
