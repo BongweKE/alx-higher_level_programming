@@ -6,7 +6,7 @@ this is the starting point
 import json
 import os
 import csv
-
+import turtle
 
 class Base:
     """Base class for most of our classes"""
@@ -139,3 +139,36 @@ class Base:
 
                 to_return.append(cls.create(**list_csv))
             return to_return
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draw using turtle"""
+        for r in list_rectangles:
+            my_screen = turtle.Screen()
+            my_screen.setup(500, 500)
+            my_screen.bgcolor("red")
+            my_drawing = turtle.Turtle()
+            my_drawing.goto(r.x, r.y)
+            my_drawing.forward(elem.width)
+            my_drawing.left(90)
+            my_drawing.forward(r.height)
+            my_drawing.right(90)
+            my_drawing.forward(r.width)
+            my_drawing.right(90)
+            my_drawing.forward(r.height)
+            turtle.done()
+
+        for r in list_squares:
+            my_screen = turtle.Screen()
+            my_screen.setup(500, 500)
+            my_screen.bgcolor("yellow")
+            my_square = turtle.Turtle()
+            my_square.goto(r.x, r.y)
+            my_square.forward(r.size)
+            my_square.left(90)
+            my_square.forward(r.size)
+            my_square.right(90)
+            my_square.forward(r.size)
+            my_square.right(90)
+            my_square.forward(r.size)
+            turtle.done()
