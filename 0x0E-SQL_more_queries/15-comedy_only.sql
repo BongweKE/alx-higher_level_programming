@@ -14,4 +14,5 @@ SELECT s.title FROM tv_shows s
     ON sg.show_id = s.id
   LEFT JOIN tv_genres g
     ON g.id = sg.genre_id
- WHERE g.name = 'Comedy';
+ WHERE g.name = 'Comedy'
+ ORDER BY s.title ASC;
