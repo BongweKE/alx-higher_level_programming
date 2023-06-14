@@ -21,6 +21,11 @@ class Square extends Square0 {
       super.print();
     }
   }
+
+  double () {
+    super.double();
+    this.size = this.height;
+  }
 }
 
 module.exports = Square;
