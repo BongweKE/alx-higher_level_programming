@@ -32,7 +32,6 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import (
     declarative_base,
-    sessionmaker,
 )
 
 mymetadata = MetaData()
@@ -59,6 +58,5 @@ db = sys.argv[3]
 engine = create_engine(
     f"mysql+mysqldb://{uname}:{pwd}@localhost:3306/{db}"
 )
-Session = sessionmaker(bind=engine)
-session = Session()
+
 Base.metadata.create_all(engine)
