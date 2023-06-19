@@ -30,7 +30,10 @@ from sqlalchemy import (
     Sequence,
     create_engine,
 )
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import (
+    declarative_base,
+    sessionmaker,
+)
 
 mymetadata = MetaData()
 Base = declarative_base(metadata=mymetadata)
@@ -50,11 +53,12 @@ class State(Base):
     )
 
 
-if __name__ == "__main__":
-    uname = sys.argv[1]
-    pwd = sys.argv[2]
-    db = sys.argv[3]
-    engine = create_engine(
-        f"mysql+mysqldb://{uname}:{pwd}@localhost:3306/{db}"
-    )
-    Base.metadata.create_all(engine)
+uname = sys.argv[1]
+pwd = sys.argv[2]
+db = sys.argv[3]
+engine = create_engine(
+    f"mysql+mysqldb://{uname}:{pwd}@localhost:3306/{db}"
+)
+Session = sessionmaker(bind=engine)
+session = Session()
+Base.metadata.create_all(engine)
