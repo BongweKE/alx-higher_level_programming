@@ -15,6 +15,7 @@ Your code should not be executed when imported/
 import MySQLdb
 import sys
 
+
 def main():
     """main
     Section to isolate the executable part of the script
@@ -50,9 +51,9 @@ def main():
     query_rows = cur.fetchall()
     print(', '.join([row[0] for row in query_rows]))
 
-
     cur.close()
     conn.close()
+
 
 if __name__ == "__main__":
     main()

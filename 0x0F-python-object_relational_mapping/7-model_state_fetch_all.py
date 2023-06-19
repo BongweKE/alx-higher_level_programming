@@ -10,8 +10,8 @@ You must import State and Base from model_state/
 -from model_state import Base, State/
 Your script should connect to a MySQL server running on localhost at port 3306/
 Results must be sorted in ascending order by states.id/
-The results must be displayed as they are in the example below
-Your code should not be executed when imported
+The results must be displayed as they are in the example below/
+Your code should not be executed when imported/
 """
 import sys
 from model_state import (
@@ -24,6 +24,7 @@ from sqlalchemy import (
     select
 )
 
+
 def main():
     uname = sys.argv[1]
     pwd = sys.argv[2]
@@ -35,6 +36,7 @@ def main():
     with engine.connect() as conn:
         for row in conn.execute(stmt):
             print(f"{row[0]}: {row[1]}")
+
 
 if __name__ == "__main__":
     main()

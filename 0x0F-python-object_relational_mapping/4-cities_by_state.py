@@ -14,6 +14,7 @@ Your code should not be executed when imported
 import MySQLdb
 import sys
 
+
 def main():
     """main
     Section to isolate the executable part of the script
@@ -50,6 +51,7 @@ def main():
 
     cur.close()
     conn.close()
+
 
 if __name__ == "__main__":
     main()

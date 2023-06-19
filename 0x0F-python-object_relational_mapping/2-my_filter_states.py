@@ -38,7 +38,9 @@ def main():
     cur = conn.cursor()
     # Get the required info from the db using the cursor
     cur.execute(
-        "SELECT * FROM states WHERE name='{s_name}' ORDER BY id ASC".format(
+        """
+        SELECT * FROM states WHERE name='{s_name}' ORDER BY id ASC
+        """.format(
             s_name=searched_name
         )
     )
