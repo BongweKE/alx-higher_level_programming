@@ -1,17 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """13-model_state_delete_a.py
-
-search = "%a%"
-		stmt = select(
-            State
-		).order_by(
-            State.id.asc()
-		).filter(
-            State.name.like(search)
-		)
-        res = session.execute(stmt).scalars().all()
-
+A script to delete a given state using commandline args
 """
 import sys
 from model_state import (
@@ -29,6 +19,9 @@ from sqlalchemy.orm import (
 
 
 def main():
+    """main:
+    Hide away code that should't be executed when the module is imported
+    """
     uname = sys.argv[1]
     pwd = sys.argv[2]
     db = sys.argv[3]
@@ -54,4 +47,5 @@ def main():
 
 
 if __name__ == "__main__":
+    """run main code"""
     main()

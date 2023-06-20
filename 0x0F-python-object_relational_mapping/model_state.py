@@ -32,13 +32,19 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import (
     declarative_base,
+    relationship,
 )
+
 
 mymetadata = MetaData()
 Base = declarative_base(metadata=mymetadata)
 
 
 class State(Base):
+    """State:
+    A class to model how instances of records in states table
+    will be represented
+    """
     __tablename__ = 'states'
     id = Column(
         Integer,
@@ -50,13 +56,19 @@ class State(Base):
         String(128),
         nullable=False
     )
+    cities = relationship('City', backref='state')
 
 
-uname = sys.argv[1]
-pwd = sys.argv[2]
-db = sys.argv[3]
-engine = create_engine(
-    f"mysql+mysqldb://{uname}:{pwd}@localhost:3306/{db}"
-)
+if __name__ == "__main__":
+    """
+    A check to ensure we can avoid circular imports
+    """
+    from model_city import City
+    uname = sys.argv[1]
+    pwd = sys.argv[2]
+    db = sys.argv[3]
+    engine = create_engine(
+        f"mysql+mysqldb://{uname}:{pwd}@localhost:3306/{db}"
+    )
 
-Base.metadata.create_all(engine)
+    Base.metadata.create_all(engine)

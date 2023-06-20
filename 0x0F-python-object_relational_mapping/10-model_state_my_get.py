@@ -34,6 +34,9 @@ from sqlalchemy.orm import (
 
 
 def main():
+    """main:
+    Hide away code that should't be executed when the module is imported
+    """
     uname = sys.argv[1]
     pwd = sys.argv[2]
     db = sys.argv[3]
@@ -44,7 +47,13 @@ def main():
 
     Session = sessionmaker(bind=engine)
     with Session() as session:
-        stmt = select(State).where(State.name==s_name).order_by(State.id.asc())
+        stmt = select(
+            State
+        ).where(
+            State.name == s_name
+        ).order_by(
+            State.id.asc()
+        )
         res = session.execute(stmt).scalars().first()
 
         if res is not None:
@@ -54,4 +63,5 @@ def main():
 
 
 if __name__ == "__main__":
+    """Run main code"""
     main()

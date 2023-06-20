@@ -26,6 +26,9 @@ from sqlalchemy import (
 
 
 def main():
+    """main:
+    Hide away code that should't be executed when the module is imported
+    """
     uname = sys.argv[1]
     pwd = sys.argv[2]
     db = sys.argv[3]
@@ -39,4 +42,5 @@ def main():
 
 
 if __name__ == "__main__":
+    """run main code"""
     main()

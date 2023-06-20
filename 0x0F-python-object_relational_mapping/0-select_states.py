@@ -44,5 +44,5 @@ def main():
 
 
 if __name__ == "__main__":
-    # Ensure that code only runs when this module is called from cmd
+    """Ensure that code only runs when this module is called from cmd"""
     main()

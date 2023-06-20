@@ -34,7 +34,12 @@ from sqlalchemy.exc import (
     NoResultFound
 )
 
+
 def main():
+    """main
+    A method to abstract away code that should only run when this
+    file is called by interpretor
+    """
     uname = sys.argv[1]
     pwd = sys.argv[2]
     db = sys.argv[3]
@@ -51,5 +56,8 @@ def main():
             print(f"{res.id}: {res.name}")
         else:
             print("Nothing\n")
+
+
 if __name__ == "__main__":
+    """run main code"""
     main()
