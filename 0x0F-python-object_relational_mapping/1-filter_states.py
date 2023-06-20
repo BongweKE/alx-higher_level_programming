@@ -34,7 +34,15 @@ def main():
     )
     cur = conn.cursor()
     # Get the required info from the db using the cursor
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cur.execute(
+        """
+        SELECT *
+          FROM states
+         WHERE name
+          LIKE BINARY 'N%'
+         ORDER BY id ASC
+        """
+    )
     query_rows = cur.fetchall()
     for row in query_rows:
         print(row)
